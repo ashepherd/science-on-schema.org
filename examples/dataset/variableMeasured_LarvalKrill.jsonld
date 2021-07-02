@@ -1,0 +1,212 @@
+{
+    "@context": {
+        "sdo": "https://schema.org/",
+        "@vocab": "https://schema.org/",
+        "qudt": "http://qudt.org/schema/qudt/",
+        "rdf": "http://www.w3.org/1999/02/22-rdf-syntax-ns#",
+        "unit": "http://qudt.org/vocab/unit/",
+        "xsd": "http://www.w3.org/2001/XMLSchema#",
+        "quantityKind": "http://qudt.org/vocab/quantitykind/"
+    },
+    "@id": "http://lod.example-data-repository.org/id/dataset/3300/metadata",
+    "@type": "Dataset",
+    "name": "Larval krill studies - fluorescence and clearance from ARSV Laurence M. Gould LMG0106, LMG0205 in the Southern Ocean from 2001-2002 (SOGLOBEC project)",
+    "description": "Winter ecology of larval krill: quantifying their interaction with the pack ice habitat. The goal of the larval krill studies was to investigate the physiology and ecology of krill larvae associated with the pack ice and the microbial community on which they feed. During LMG0106 we occupied two 4-5 day ice stations (Robert and Billy) and sampled several other ice floes opportunistically. We conducted 10 instantaneous growth rate experiments, and 4 whole body clearance time experiments to determine gut passage time (decline in pigment content over time). We also sampled larvae at two additional sites for initial body pigment content (whole body fluorescence), and at 4 sites for condition factor. ",
+    "datePublished": "2010-02-03",
+    "keywords": [
+        "krill",
+        "biota",
+        "oceans"
+    ],
+    "license": "https://creativecommons.org/licenses/by/4.0/",
+    "temporalCoverage": "2001-08-06/2002-09-09",
+    "spatialCoverage": {
+        "@type": "Place",
+        "geo": {
+            "@type": "GeoShape",
+            "box": "-68.4817 -75.8183 -65.08 -68.5033",
+            "polygon": "-68.4817,-75.8183 -65.08,-75.8183 -65.08,-68.5033 -68.4817,-68.5033 -68.4817,-75.8183"
+        },
+        "additionalProperty": {
+            "@type": "PropertyValue",
+            "propertyID": "http://sweetontology.net/reprSpaceGeometry/BoundingBox",
+            "name": "WKT bounding box",
+            "value": "POLYGON ((-75.8183 -68.4817, -68.5033 -68.4817, -68.5033 -65.08, -75.8183 -65.08, -75.8183 -68.4817))",
+            "valueReference": [
+                {
+                    "@type": "PropertyValue",
+                    "propertyID": "http://www.wikidata.org/entity/Q31385480",
+                    "name": "datatype",
+                    "value": "http://www.opengis.net/ont/geosparql#wktLiteral"
+                },
+                {
+                    "@type": "PropertyValue",
+                    "propertyID": "http://www.wikidata.org/entity/Q161779",
+                    "name": "SRS",
+                    "alternateName": "Spatial Reference System",
+                    "value": "http://www.opengis.net/def/crs/OGC/1.3/CRS84"
+                }
+            ]
+        }
+    },
+    "distribution": [
+        {
+            "@type": "DataDownload",
+            "contentUrl": "https://www.example-data-repository.org/dataset/3300/data/larval-krill.tsv",
+            "encodingFormat": "text/tsv",
+            "datePublished": "2010-02-03"
+        }
+    ],
+    "measurementTechnique": [
+        "Hand-held plankton net",
+        "Manual Biota Sampler"
+    ],
+    "variableMeasured": [
+        {
+            "@type": "PropertyValue",
+            "@id": "http://lod.example-data-repository.org/id/dataset/3300/variable0001",
+            "propertyID": [
+                "http://lod.example-data-repository.org/id/dataset-parameter/20860",
+                "http://purl.dataone.org/odo/ECSO_00002440"
+            ],
+            "name": "cruiseid",
+            "description": "cruise identification",
+            "qudt:dataType": "http://www.w3.org/2001/XMLSchema#token"
+        },
+        {
+            "@type": "PropertyValue",
+            "@id": "http://lod.example-data-repository.org/id/dataset/3300/variable0002",
+            "name": "year",
+            "description": "year of experiment",
+            "propertyID": "https://www.example-data-repository.org/dataset-parameter/20861",
+            "unitText": "year",
+            "unitCode": "http://qudt.org/vocab/unit/YR",
+            "qudt:dataType": "http://www.w3.org/2001/XMLSchema#gYear",
+            "qudt:hasUnit": {"@id": "unit:YR"}
+        },
+        {
+            "@type": "PropertyValue",
+            "@id": "http://lod.example-data-repository.org/id/dataset/3300/variable0003",
+            "name": "sample_id",
+            "description": "sample identification: WBC=whole body clearance expt.; WBF=whole body fluorescence on collection",
+            "propertyID": "https://www.example-data-repository.org/dataset-parameter/20862",
+            "url": "https://www.hl7.org/fhir/datatypes-definitions.html#Identifier",
+            "qudt:dataType": "http://www.w3.org/2001/XMLSchema#token"
+        },
+        {
+            "@type": "PropertyValue",
+            "@id": "http://lod.example-data-repository.org/id/dataset/3300/variable0004",
+            "name": "time_sample",
+            "description": "time of sampling for pigment content after collection; decline of pigment content with time was used to calculate time to clear the gut of pigment.",
+            "propertyID": "https://www.example-data-repository.org/dataset-parameter/20863",
+            "unitText": "minutes",
+            "unitCode": "http://qudt.org/vocab/unit/MIN",
+            "qudt:hasUnit": {"@id": "unit:MIN"},
+            "qudt:dataType": "http://www.w3.org/2001/XMLSchema#nonNegativeInteger"
+        },
+        {
+            "@type": "PropertyValue",
+            "@id": "http://lod.example-data-repository.org/id/dataset/3300/variable0005",
+            "name": "pigment_content",
+            "description": "pigment content, chlorophyll content in microgram per gram, wet weight. Min and max values are range of values in the actual dataset",
+            "propertyID": "https://www.example-data-repository.org/dataset-parameter/20864",
+            "unitText": "micrograms total chl/grams wet weight",
+            "unitCode": "http://qudt.org/vocab/unit/PPM",
+            "measurementTechnique": "Chlorophyll determination was done spectrophotometrically at absorbances 664nm, 647nm & 630nm. Concentration of chlorophyll a, b, c was calculated in microgam/gram and summed.",
+            "minValue": ".0001",
+            "maxValue": "125",
+            "qudt:dataType": "http://www.w3.org/2001/XMLSchema#decimal",
+            "qudt:hasUnit": {"@id": "unit:PPM"}
+        },
+        {
+            "@type": "PropertyValue",
+            "@id": "http://lod.example-data-repository.org/id/dataset/3300/variable0006",
+            "name": "stage_id",
+            "description": "stage development index of larvae in sample (furcilia = F1-6 = 1-6,  juvenile = J=7)",
+            "propertyID": "https://www.example-data-repository.org/dataset-parameter/20865",
+            "qudt:dataType": "https://schema.org/Text",
+            "rangeIncludes": {
+                "@type": "DefinedTermSet",
+                "@id": "http://lod.example-data-repository.org/id/vocabulary/2537238",
+                "name": "Controlled vocabulary for larval stage",
+                "hasDefinedTerm": [
+                    {
+                        "@type": "DefinedTerm",
+                        "termCode": "F1"
+                    },
+                    {
+                        "@type": "DefinedTerm",
+                        "termCode": "F2"
+                    },
+                    {
+                        "@type": "DefinedTerm",
+                        "termCode": "F3"
+                    },
+                    {
+                        "@type": "DefinedTerm",
+                        "termCode": "F4"
+                    },
+                    {
+                        "@type": "DefinedTerm",
+                        "termCode": "F5"
+                    },
+                    {
+                        "@type": "DefinedTerm",
+                        "termCode": "F6"
+                    }
+                ]
+            }
+        },
+        {
+            "@type": "PropertyValue",
+            "@id": "http://lod.example-data-repository.org/id/dataset/3300/variable0007",
+            "name": "wet_weight",
+            "description": "average wet weight/larvae in sample",
+            "propertyID": "https://www.example-data-repository.org/dataset-parameter/20866",
+            "unitText": "mg",
+            "unitCode": "http://qudt.org/vocab/unit/MilliGM",
+            "qudt:dataType": "http://www.w3.org/2001/XMLSchema#decimal",
+            "qudt:hasUnit": {"@id": "unit:MilliGM"},
+            "minValue": "0.1"
+        },
+        {
+            "@type": "PropertyValue",
+            "@id": "http://lod.example-data-repository.org/id/dataset/3300/variable0008",
+            "name": "lat",
+            "description": "latitude, in decimal degrees, North is positive, negative denotes South",
+            "propertyID": "https://www.example-data-repository.org/dataset-parameter/20874",
+            "unitText": "decimal degrees",
+            "unitCode": "http://qudt.org/vocab/unit/DEG",
+            "minValue": "23",
+            "maxValue": "30",
+            "qudt:dataType": "http://www.w3.org/2001/XMLSchema#decimal",
+            "qudt:hasUnit": {"@id": "unit:DEG"}
+        },
+        {
+            "@type": "PropertyValue",
+            "@id": "http://lod.example-data-repository.org/id/dataset/3300/variable0009",
+            "name": "lon",
+            "description": "longitude, in decimal degrees, East is positive, negative denotes West",
+            "propertyID": "https://www.example-data-repository.org/dataset-parameter/20875",
+            "unitText": "decimal degrees",
+            "unitCode": "http://qudt.org/vocab/unit/DEG",
+            "qudt:dataType": "http://www.w3.org/2001/XMLSchema#decimal",
+            "qudt:hasUnit": {"@id": "unit:DEG"},
+            "minValue": "-127",
+            "maxValue": "-125"
+        },
+        {
+            "@type": "PropertyValue",
+            "@id": "http://lod.example-data-repository.org/id/dataset/3300/variable0013",
+            "name": "yrday_local",
+            "description": "local day and decimal time, as 326.5 for the 326th day of the year, or November 22 at 1200 hours (noon)",
+            "propertyID": "https://www.example-data-repository.org/dataset-parameter/20879",
+            "unitText": "decimal day",
+            "unitCode": "http://qudt.org/vocab/unit/DAY",
+            "qudt:dataType": "http://www.w3.org/2001/XMLSchema#decimal",
+            "qudt:hasUnit": {"@id": "unit:DAY"},
+            "minValue": "333.6",
+            "maxValue": "355.9"
+        }
+    ]
+}

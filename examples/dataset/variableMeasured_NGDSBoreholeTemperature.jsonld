@@ -1,0 +1,142 @@
+{
+    "@context": {
+        "@vocab": "https://schema.org/",
+        "qudt": "http://qudt.org/schema/qudt/",
+        "rdf": "http://www.w3.org/1999/02/22-rdf-syntax-ns#",
+        "unit": "http://qudt.org/vocab/unit/",
+        "xsd": "http://www.w3.org/2001/XMLSchema#",
+        "quantityKind": "http://qudt.org/vocab/quantitykind/"
+    },
+    "@type": "Dataset",
+    "additionalType": "http://schemas.usgin.org/models/#boreholetemperature",
+    "name": "Borehole Temperature data from Pima County, Arizona",
+    "description": "National Geothermal Data System denormalized flat file format, merges information about the borehole (location, depth etc.) with observation data for each temperature measurment",
+    "variableMeasured": [
+        {
+            "@type": "PropertyValue",
+            "propertyID": "http://semanticscience.org/resource/SIO_000763",
+            "name": "OBJECTID",
+            "description": "primary key added by GIS software",
+            "qudt:dataType": "http://www.w3.org/2001/XMLSchema#long"
+        },
+        {
+            "@type": "PropertyValue",
+            "propertyID": "http://semanticscience.org/resource/SIO_000115",
+            "name": "ObservationURI",
+            "alternateName": "Observation identifier",
+            "description": "Unique global identifier for this observation record.",
+            "qudt:dataType": "http://www.w3.org/2001/XMLSchema#anyURI"
+        },
+        {
+            "@type": "PropertyValue",
+            "name": "Borehole Sampling Feature",
+            "propertyID": "http://www.opengis.net/def/ogc-om/SF_SamplingCurve",
+            "description": "temperature observations were all made in Borehole sampling features; this structured value characterizes each borehole. ",
+            "qudt:dataType": "http://qudt.org/schema/qudt/TupleType",
+            "valueReference": [
+                {
+                    "@type": "PropertyValue",
+                    "name": "WellName",
+                    "propertyID": "http://semanticscience.org/resource/SIO_000116",
+                    "description": "Common or human-readable name by which the feature is known. ",
+                    "qudt:dataType": "http://www.w3.org/2001/XMLSchema#token"
+                },
+                {
+                    "@type": "PropertyValue",
+                    "name": "APINo",
+                    "propertyID": "http://semanticscience.org/resource/SIO_000115",
+                    "alternateName": "American Petroleum Institute well identifier",
+                    "description": "API number for the the wellbore/borehole identified by the HeaderURI. ",
+                    "qudt:dataType": [
+                        "http://qudt.org/schema/qudt/ReferenceDatatype",
+                        "http://www.w3.org/2001/XMLSchema#name",
+                        "https://en.wikipedia.org/wiki/API_well_number"
+                    ]
+                },
+                {
+                    "@type": "PropertyValue",
+                    "name": "PLSSLocation",
+                    "propertyID": "http://www.opengis.net/def/property/OGC/0/SamplingLocation",
+                    "alternateName": "US Public Land Survey System location",
+                    "description": "The sampling feature in which the temperature observation was made.",
+                    "qudt:dataType": [
+                        "http://qudt.org/schema/qudt/TupleType",
+                        "https://www.usgs.gov/media/images/public-land-survey-system-plss"
+                    ],
+                    "valueReference": [
+                        {
+                            "@type": "PropertyValue",
+                            "name": "PLSS_Meridians",
+                            "description": "List north-south baseline and east-west meridian that Townships and Ranges are referenced to.",
+                            "qudt:dataType": "http://www.w3.org/2001/XMLSchema#token"
+                        },
+                        {
+                            "@type": "PropertyValue",
+                            "name": "TWP",
+                            "alternateName": "Township",
+                            "description": "Township in PLSS grid, relative to reported baseline. ",
+                            "qudt:dataType": "http://www.w3.org/2001/XMLSchema#token"
+                        },
+                        {
+                            "@type": "PropertyValue",
+                            "name": "RGE",
+                            "alternateName": "Range",
+                            "description": "Range in PLSS grid, relative to reported meridian.",
+                            "qudt:dataType": "http://www.w3.org/2001/XMLSchema#token"
+                        }
+                    ]
+                },
+                {
+                    "@type": "PropertyValue",
+                    "name": "DepthOfMeasurement",
+                    "propertyID": "http://purl.obolibrary.org/obo/PATO_0001595",
+                    "description": "depth below surface, along the borehole trace",
+                    "qudt:dataType": "http://www.w3.org/2001/XMLSchema#decimal",
+                    "valueReference": {
+                        "@type": "PropertyValue",
+                        "name": "LengthUnits",
+                        "description": "Valid choices for units = Meters or Feet. If depth is reported as 'surface' or 'missing', use 'meters'.",
+                        "qudt:dataType": "http://www.w3.org/2001/XMLSchema#token"
+                    }
+                }
+            ]
+        },
+        {
+            "@type": "PropertyValue",
+            "name": "ObservationResult",
+            "description": "the measured temperature and related information (most of the details left out of this example, e.g. sensor type, correction method, corrected value... ",
+            "propertyID": "http://www.w3.org/ns/sosa/hasResult",
+            "qudt:dataType": "http://qudt.org/schema/qudt/TupleType",
+            "valueReference": [
+                {
+                    "@type": "PropertyValue",
+                    "name": "MeasuredTemperature",
+                    "alternate name": "temperature",
+                    "description": "observed temperature",
+                    "propertyID": "http://purl.obolibrary.org/obo/PATO_0000146",
+                    "qudt:dataType": "http://www.w3.org/2001/XMLSchema#decimal"
+                },
+                {
+                    "@type": "PropertyValue",
+                    "name": "TemperatureUnits",
+                    "description": "Temperatures in either degrees Fahrenheit or Celsius. ",
+                    "qudt:dataType": "https://schema.org/Text",
+                    "rangeIncludes": {
+                        "@type": "DefinedTermSet",
+                        "name": "Allowed temperature scales",
+                        "hasDefinedTerm": [
+                            {
+                                "@type": "DefinedTerm",
+                                "termCode": "Fahrenheit"
+                            },
+                            {
+                                "@type": "DefinedTerm",
+                                "termCode": "Celsius"
+                            }
+                        ]
+                    }
+                }
+            ]
+        }
+    ]
+}

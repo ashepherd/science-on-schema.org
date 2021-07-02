@@ -1,0 +1,119 @@
+{
+    "@context": {
+        "@vocab": "https://schema.org/",
+        "qudt": "http://qudt.org/schema/qudt/",
+        "rdf": " http://www.w3.org/1999/02/22-rdf-syntax-ns#",
+        "dct": "http://purl.org/dc/terms/",
+        "unit": "http://qudt.org/vocab/unit/",
+        "xsd": "http://www.w3.org/2001/XMLSchema#",
+        "quantityKind": "http://qudt.org/vocab/quantitykind/"
+    },
+    "@id": "waterdata.usgs.gov/nwis/monthly_temp_1980-10_1995-08",
+    "@type": "Dataset",
+    "url": "https://waterdata.usgs.gov/nwis/monthly?referred_module=sw&amp;site_no=09379500&amp;por_09379500_143226=00010,1980-10,1995-08&amp;format=rdb&amp;date_format=YYYY-MM-DD",
+    "variableMeasured": [
+        {
+            "@type": "PropertyValue",
+            "@id": "waterdata.usgs.gov/nwis/monthly_temp_1980-10_1995-08/variable0001",
+            "propertyID": [
+                "https://www.wikidata.org/wiki/Q1056760",
+                "https://www.wikidata.org/wiki/Q327333"
+            ],
+            "name": "agency_cd",
+            "description": "The NWIS code for the agency reporting the data. Agency codes are fixed values assigned by the National Water Information System (NWIS). Foreign key to NWIS lookup table.",
+            "qudt:cardinality": "1",
+            "qudt:dataType": [
+                "http://www.w3.org/2001/XMLSchema#token",
+                "http://qudt.org/schema/qudt/ReferenceDatatype"
+            ],
+            "dct:references": "https://help.waterdata.usgs.gov/code/agency_cd_query?fmt=rdb&inline=true"
+        },
+        {
+            "@type": "PropertyValue",
+            "@id": "waterdata.usgs.gov/nwis/monthly_temp_1980-10_1995-08/variable0002",
+            "propertyID": [
+                "https://www.wikidata.org/wiki/Q6545185",
+                "http://def.seegrid.csiro.au/isotc211/iso19156/2011/sampling#SamplingPoint"
+            ],
+            "name": "site_no",
+            "description": "The USGS site number. Each site in the USGS data base has a unique 2- to 15-digit identification number.",
+            "qudt:cardinality": "1",
+            "qudt:dataType": "http://www.w3.org/2001/XMLSchema#token"
+        },
+        {
+            "@type": "PropertyValue",
+            "@id": "waterdata.usgs.gov/nwis/monthly_temp_1980-10_1995-08/variable0003",
+            "propertyID": [
+                "https://www.wikidata.org/wiki/Q1056760",
+                "https://www.wikidata.org/wiki/Q3895225"
+            ],
+            "name": "parameter_cd",
+            "description": "Foreign key references USGS waterdata parameter list. Parameter codes are 5-digit codes used to identify the constituent measured and the units of measure. Some parameter code definitions include information about the methods used to measure the constituent, but this level of information is not currently consistent in the naming system.",
+            "minVal": "00001",
+            "maxVal": "99997",
+            "qudt:cardinality": "1",
+            "qudt:dataType": [
+                "http://www.w3.org/2001/XMLSchema#positiveInteger",
+                "http://qudt.org/schema/qudt/ReferenceDatatype"
+            ],
+            "dct:references": "https://help.waterdata.usgs.gov/parameter_cd?group_cd=%"
+        },
+        {
+            "@type": "PropertyValue",
+            "@id": "waterdata.usgs.gov/nwis/monthly_temp_1980-10_1995-08/variable0004",
+            "propertyID": [
+                "https://www.wikidata.org/wiki/Q6545185",
+                "https://www.wikidata.org/wiki/Q186588"
+            ],
+            "name": "ts_id",
+            "alternateName": "Time series identifier",
+            "description": "A 5-6 digit number which uniquely identifies a series of data for one parameter at one location at a continuous-recording data site. The ts_id is used by the database for selecting data for download or display as a list, table, or graph and may change over time as new database tables are created.",
+            "url": "https://help.waterdata.usgs.gov/codes-and-parameters",
+            "qudt:cardinality": "1",
+            "qudt:dataType": [
+                "http://www.w3.org/2001/XMLSchema#positiveInteger",
+                "http://qudt.org/schema/qudt/ReferenceDatatype"
+            ]
+        },
+        {
+            "@type": "PropertyValue",
+            "@id": "waterdata.usgs.gov/nwis/monthly_temp_1980-10_1995-08/variable0005",
+            "propertyID": [
+                "https://www.wikidata.org/wiki/Q186885",
+                "https://www.wikidata.org/wiki/Q577"
+            ],
+            "name": "year_nu",
+            "alternateName": "Year",
+            "description": "Year as 4 digit number",
+            "qudt:cardinality": "1",
+            "qudt:dataType": "http://www.w3.org/2001/XMLSchema#gYear"
+        },
+        {
+            "@type": "PropertyValue",
+            "@id": "waterdata.usgs.gov/nwis/monthly_temp_1980-10_1995-08/variable0006",
+            "propertyID": [
+                "https://www.wikidata.org/wiki/Q186885",
+                "https://www.wikidata.org/wiki/Q47018478"
+            ],
+            "name": "month_nu",
+            "alternateName": "month number",
+            "description": "the period of one calendar month recurring each calendar year (such as the month of April), identified by its sequential number in the calendar year, from 1 (January) to 12 (December)",
+            "minVal": 1,
+            "maxVal": 12,
+            "qudt:cardinality": "1",
+            "qudt:dataType": "http://www.w3.org/2001/XMLSchema#positiveInteger"
+        },
+        {
+            "@type": "PropertyValue",
+            "@id": "waterdata.usgs.gov/nwis/monthly_temp_1980-10_1995-08/variable0007",
+            "propertyID": [
+                "http://purl.obolibrary.org/obo/NCIT_C49100"
+            ],
+            "name": "mean_va",
+            "alternateName": "Mean value",
+            "description": "Mean value of parameter specified by parameter_cd, averaged over time period specified by year_nu/month_nu",
+            "qudt:cardinality": "1",
+            "qudt:dataType": "http://www.w3.org/2001/XMLSchema#decimal"
+        }
+    ]
+}

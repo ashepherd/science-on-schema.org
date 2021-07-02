@@ -1,0 +1,287 @@
+{
+    "@context": {
+        "@vocab": "https://schema.org/",
+        "qudt": "http://qudt.org/schema/qudt/",
+        "rdf": " http://www.w3.org/1999/02/22-rdf-syntax-ns#",
+        "dct": "http://purl.org/dc/terms/",
+        "unit": "http://qudt.org/vocab/unit/",
+        "xsd": "http://www.w3.org/2001/XMLSchema#",
+        "quantityKind": "http://qudt.org/vocab/quantitykind/",
+        "qudtschema": "http://qudt.org/schema/qudt/"
+    },
+    "@id": "http://astromat/dataset/data_astromat_analysis/metadata",
+    "@type": "Dataset",
+    "variableMeasured": [
+        {
+            "@type": "PropertyValue",
+            "@id": "http://astromat/dataset/data_astromat_analysis/variable0002",
+            "propertyID": [
+                "https://www.wikidata.org/wiki/Q1056760",
+                "https://www.wikidata.org/wiki/Q180160"
+            ],
+            "name": "analysisActionNum",
+            "description": "foreign key to session metadata for the analysis, shared by 1 to many analyses done during the session.",
+            "qudt:cardinality": "1",
+            "qudt:dataType": [
+               {"@id":"xsd:positiveInteger"},
+                {"@id":"qudtschema:ReferenceDatatype"}
+            ],
+            "dct:references": "http://astromat/dataset/data_astromat_analysis_action"
+        },
+        {
+            "@type": "PropertyValue",
+            "@id": "http://astromat/dataset/data_astromat_analysis/variable0003",
+            "propertyID": "qudt:Comment",
+            "name": "analysisComment",
+            "description": "additional free text information about this analysis",
+            "qudt:dataType": {"@id":"xsd:normalizedString"},
+            "qudt:cardinality": "0..1"
+        },
+        {
+            "@type": "PropertyValue",
+            "@id": "http://astromat/dataset/data_astromat_analysis/variable0004",
+            "propertyID": "https://www.wikidata.org/wiki/Q934729",
+            "name": "analysisID",
+            "description": "Primary Key, uniquely identifies this analysis; this identifier will be 1:1 with an analyzed material sampling feature identifier, generally a split/child of the sample identified by sampleID.",
+            "qudt:cardinality": "1",
+            "qudt:dataType": {"@id":"xsd:normalizedString"}
+        },
+        {
+            "@type": "PropertyValue",
+            "@id": "http://astromat/dataset/data_astromat_analysis/variable0005",
+            "propertyID": "http://purl.obolibrary.org/obo/PATO_0000025",
+            "name": "analyzedMaterialCode",
+            "description": "foreign key to material type vocabulary, a controlled vocabulary for specifyiing the material constituent of the analyzed material. property is composition",
+            "qudt:cardinality": "1",
+            "qudt:dataType": [
+                {"@id":"xsd:positiveInteger"},
+                {"@id":"qudtschema:ReferenceDatatype"}
+            ],
+            "dct:references": "http://astromat/vocabulary/material_type"
+        },
+        {
+            "@type": "PropertyValue",
+            "@id": "http://astromat/dataset/data_astromat_analysis/variable0005",
+            "propertyID": "http://purl.obolibrary.org/obo/PATO_0000025",
+            "name": "analyzedMaterialName",
+            "description": "free text label for the analyzed material",
+            "qudt:cardinality": "0..1",
+            "qudt:dataType": {"@id":"xsd:normalizedString"}
+        },
+        {
+            "@type": "PropertyValue",
+            "@id": "http://astromat/dataset/data_astromat_analysis/variable0007",
+            "propertyID": "http://astromat/parameters/0027",
+            "name": "calcAvg",
+            "description": "Value in sample data are 'Can be averaged', 'Cannot be averaged', 'It is average' (note spelling errors)",
+            "qudt:cardinality": "0..1",
+            "qudt:dataType": {"@id":"sdo:Text"},
+            "rangeIncludes": {
+                "@type": "DefinedTermSet",
+                "@id": "https://www.astromat.org/vocab/calcavg",
+                "name": "calcAvg controlled vocabulary",
+                "hasDefinedTerm": [
+                    {
+                        "@type": "DefinedTerm",
+                        "termCode": "Can be averaged"
+                    },
+                    {
+                        "@type": "DefinedTerm",
+                        "termCode": "Cannot be averaged"
+                    },
+                    {
+                        "@type": "DefinedTerm",
+                        "termCode": "It is average"
+                    }
+                ]
+            }
+        },
+        {
+            "@type": "PropertyValue",
+            "@id": "http://astromat/dataset/data_astromat_analysis/variable0008",
+            "propertyID": [
+                "https://www.wikidata.org/wiki/Q1056760",
+                "https://www.wikidata.org/wiki/Q180160"
+            ],
+            "name": "datasetID",
+            "description": "foreign key to dataset table; metadata that identifies the dataset within a publication in which the analysis is reported.",
+            "qudt:cardinality": "1",
+            "qudt:dataType": [
+                {"@id":"xsd:normalizedString"},
+                {"@id":"qudtschema:ReferenceDatatype"}
+            ],
+            "dct:references": "http://astromat/dataset/data_astromat_dataset"
+        },
+        {
+            "@type": "PropertyValue",
+            "@id": "http://astromat/dataset/data_astromat_analysis/variable0009",
+            "propertyID": "http://astromat/parameters/0018",
+            "name": "grain",
+            "description": "values are 'GM', 'PC' or blank; needs explanation",
+            "qudt:cardinality": "0..1",
+            "qudt:dataType": {"@id":"sdo:Text"},
+            "rangeIncludes": {
+                "@type": "DefinedTermSet",
+                "@id": "https://www.astromat.org/vocab/grain",
+                "name": "grain type controlled vocabulary",
+                "hasDefinedTerm": [
+                    {
+                        "@type": "DefinedTerm",
+                        "termCode": "GM"
+                    },
+                    {
+                        "@type": "DefinedTerm",
+                        "termCode": "PC"
+                    }
+                ]
+            }
+        },
+        {
+            "@type": "PropertyValue",
+            "@id": "http://astromat/dataset/data_astromat_analysis/variable0010",
+            "propertyID": "http://astromat/parameters/0005",
+            "name": "heated",
+            "description": "Values are 'C',  'R', or blank; needs explanation",
+            "qudt:cardinality": "0..1",
+            "qudt:dataType": {"@id":"sdo:Text"},
+            "rangeIncludes": {
+                "@type": "DefinedTermSet",
+                "@id": "https://www.astromat.org/vocab/grain",
+                "name": "grain type controlled vocabulary",
+                "hasDefinedTerm": [
+                    {
+                        "@type": "DefinedTerm",
+                        "termCode": "C"
+                    },
+                    {
+                        "@type": "DefinedTerm",
+                        "termCode": "R"
+                    }
+                ]
+            }
+        },
+        {
+            "@type": "PropertyValue",
+            "@id": "http://astromat/dataset/data_astromat_analysis/variable0011",
+            "propertyID": [
+                "http://purl.obolibrary.org/obo/PATO_0000025",
+                "http://astromat/parameters/0405"
+            ],
+            "name": "hostMineral",
+            "description": "abbreviation from mineral list Controlled vocabulary, identifies the mineral that contains the inclusion. Only applicable if analysis type is inclusion. ",
+            "qudt:cardinality": "0..1",
+            "qudt:dataType": {"@id":"sdo:Text"},
+            "rangeIncludes": "http://astromat/vocabulary/minerals"
+        },
+        {
+            "@type": "PropertyValue",
+            "@id": "http://astromat/dataset/data_astromat_analysis/variable0012",
+            "propertyID": [
+                "http://purl.obolibrary.org/obo/PATO_0000025",
+                "http://astromat/parameters/0005"
+            ],
+            "name": "hostRock",
+            "description": "Kind of rock that contains the analyzed material; free text. Current values are like 'OL, Fo 74.68', or '1.0'",
+            "qudt:cardinality": "0..1",
+            "qudt:dataType": {"@id":"xsd:normalizedString"}
+        },
+        {
+            "@type": "PropertyValue",
+            "@id": "http://astromat/dataset/data_astromat_analysis/variable0013",
+            "propertyID": [
+                "http://purl.obolibrary.org/obo/PATO_0000025",
+                "http://astromat/parameters/0021"
+            ],
+            "name": "inclusionMineral",
+            "description": "abbreviation from Controlled vocabulary mineral list, identifies the inclusion mineral. Only applicable if analysis type is inclusion.",
+            "qudt:cardinality": "0..1",
+            "qudt:dataType": {"@id":"sdo:Text"},
+            "rangeIncludes": "http://astromat/vocabulary/minerals"
+        },
+        {
+            "@type": "PropertyValue",
+            "@id": "http://astromat/dataset/data_astromat_analysis/variable0014",
+            "propertyID": "quantitykind:Diameter",
+            "name": "inclusionSize",
+            "description": "length value with UOM. Only applicable if analysis type is inclusion.",
+            "qudt:cardinality": "0..1",
+            "qudt:dataType": {"@id":"xsd:normalizedString"}
+        },
+        {
+            "@type": "PropertyValue",
+            "@id": "http://astromat/dataset/data_astromat_analysis/variable0015",
+            "propertyID": "http://astromat/parameters/0022",
+            "name": "inclusionType",
+            "description": "controlled vocabulary, identifies kind of inclusion. Only applicable if analysis type is inclusion.",
+            "qudt:cardinality": "0..1",
+            "qudt:dataType": {"@id":"sdo:Text"},
+            "rangeIncludes": "http://astromat/vocabulary/inclusionType"
+        },
+        {
+            "@type": "PropertyValue",
+            "@id": "http://astromat/dataset/data_astromat_analysis/variable0016",
+            "propertyID": "quantitykind:Diameter",
+            "name": "mineralSize",
+            "description": "length value with UOM. Only applicable if analysis type is mineral.",
+            "qudt:cardinality": "0..1",
+            "qudt:dataType": {"@id":"xsd:normalizedString"}
+        },
+        {
+            "@type": "PropertyValue",
+            "@id": "http://astromat/dataset/data_astromat_analysis/variable0017",
+            "propertyID": "http://astromat/parameters/0028",
+            "name": "numberofReplicates",
+            "description": "count of repeat measures used in average calculation; highest value is 842 in sample data\u2026.)",
+            "maxValue": 842,
+            "minValue": 1,
+            "qudt:cardinality": "0..1",
+            "qudt:dataType": {"@id":"xsd:positiveInteger"}
+        },
+        {
+            "@type": "PropertyValue",
+            "@id": "http://astromat/dataset/data_astromat_analysis/variable0018",
+            "propertyID": "http://astromat/parameters/0029",
+            "name": "rimOrCore",
+            "description": "context of the spot within the analyzed grain; content in sample data includes length with UOM, an integer value (?length no UOM?), and various strings like 'Rim', 'core', 'Glass Bead', use for micro analytical data, e.g. microprobe",
+            "qudt:cardinality": "0..1",
+            "qudt:dataType": {"@id":"xsd:normalizedString"}
+        },
+        {
+            "@type": "PropertyValue",
+            "@id": "http://astromat/dataset/data_astromat_analysis/variable0019",
+            "propertyID": [
+                "https://www.wikidata.org/wiki/Q1056760",
+                "https://www.wikidata.org/wiki/Q180160"
+            ],
+            "name": "sampleID",
+            "description": "The root specimen from which the analyzed material was derived. Foreign key to sample.csv",
+            "qudt:cardinality": "1",
+            "qudt:dataType": [
+                {"@id":"xsd:normalizedString"},
+                {"@id":"qudtschema:ReferenceDatatype"}
+            ],
+            "dct:references": "http://astromat/dataset/data_astromat_sample"
+        },
+        {
+            "@type": "PropertyValue",
+            "@id": "http://astromat/dataset/data_astromat_analysis/variable0020",
+            "propertyID": "http://astromat/parameters/0041",
+            "name": "spotID",
+            "description": "identifier for specific analyzed spot, use for micro analytical data, e.g. microprobe",
+            "qudt:cardinality": "0..1",
+            "qudt:dataType": {"@id":"xsd:normalizedString"}
+        },
+        {
+            "@type": "PropertyValue",
+            "@id": "http://astromat/dataset/data_astromat_analysis/variable0021",
+            "propertyID": [
+                "http://astromat/parameters/0042",
+                "quantitykind:Temperature"
+            ],
+            "name": "temperature",
+            "description": "Temperature of heating?  Values in test data are 'YES', 'NO', and blank. Needs explanation",
+            "qudt:cardinality": "0..1",
+            "qudt:dataType": "Boolean"
+        }
+    ]
+}
